@@ -39,5 +39,5 @@ Users can query the data from the cluster or retrieve report output files direct
 
 # Architecture Diagram
 
-![](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/Screenshot%202022-02-18%20101240.jpg)
+![](https://raw.githubusercontent.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/main/images/architecture.jpg)
  

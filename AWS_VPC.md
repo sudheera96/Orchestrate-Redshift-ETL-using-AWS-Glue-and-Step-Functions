@@ -26,11 +26,23 @@ VPC = Virtual Private Cloud. You can have multiple VPCs in an AWS region (max. 5
 * Can’t be used by EC2 instance in the same subnet (only from other subnets)
 * Requires an IGW (Private Subnet => NATGW => IGW)
 
+# Security Groups
+
+* Security Groups are the fundamental of network security in AWS 
+* They control how traffic is allowed into or out of our EC2 Instances.
+* Security groups only contain allow rules
+* Security groups rules can reference by IP or by security group
+* Firewall attached to the EC2 instance
+* Stateful: return traffic is automatically allowed, regardless of any rules
+* All rules are evaluated before deciding whether to allow traffic
+
 # Network Access Control List (NACL)
 
 * NACL are like a firewall which control traffic from and to subnets
 * One NACL per subnet, new subnets are assigned the Default NACL
 * NACL are a great way of blocking a specific IP address at the subnet level
+* Stateless: return traffic must be explicitly allowed by rules (think of ephemeral ports)
+* Rules are evaluated in order (lowest to highest) when deciding whether to allow traffic, first match wins
 
   ## Default NACL
    * Accepts everything inbound/outbound with the subnets it’s associated with

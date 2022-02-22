@@ -19,7 +19,7 @@ It is prevalent to use Redshift as a data-warehousing tool in the AWS cloud. How
    * Amazon Redshift
    * AWS Glue
    * AWS Step Function
-   * VPC
+   * [VPC](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/AWS_VPC.md)
    * QuickSight
 
 # Data Description

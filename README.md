@@ -21,6 +21,7 @@ It is prevalent to use Redshift as a data-warehousing tool in the AWS cloud. How
    * [AWS Step Function](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/AWS_Stepfunction.md)
    * [VPC](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/AWS_VPC.md)
    * [QuickSight](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/AWS_Quicksight.md)
+   * [SNS](https://github.com/sudheera96/Orchestrate-Redshift-ETL-using-AWS-Glue-and-Step-Functions/blob/main/AWS_SNS.md)
 
 # Data Description
 

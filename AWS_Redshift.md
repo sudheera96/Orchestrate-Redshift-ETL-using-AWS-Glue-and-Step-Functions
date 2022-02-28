@@ -36,3 +36,29 @@
 * Query data that is already in S3 without loading it
 * Must have a Redshift cluster available to start the query
 * The query is then submitted to thousands of Redshift Spectrum nodes
+
+# Redshift Cluster Creation
+
+Read the data from s3 using redshift spectrum and load into the redshift and run some quieries on redshift and extract the tranformed data from redshift and put it into s3. So we redshift as datawarehouse where we can run select quieries. We create redshift and put inthe private subnet because it will hold confidential data
+
+1.  Go to redshift from search bar and ensure to create redshift in the same region of your VPC creation.
+2.  Before that in the menu go to the config and select manage subnet groups.
+3.  Now give cluster name and description as 'myreviewsubnetgroup'
+4.  Attach VPC and two private subnets created in different AZ and click on create cluster subnet group.
+5.  Now go into the clusters from menu and click on create new cluster.
+6.  Now give name as 'myproject cluster'. If your free tire is over click on production ad select cluster size and node if not for free it will automatically provide cluster size as dc2.large | 1 node.
+7.  Now enter the admin user and password.
+
+# Creation of IAM roles
+
+9.  Now cluster require permissions for that we need to create IAM roles
+10.  Now in search bar go to IAM >> roles >> AWS services >> Redshift >> Redshift customizable >> next >> create policy >> JSON >> copy and paste provide policy.
+11. So in policy we provide permissions like redshift can access s3 and glue in JSON format. So the redshift can access only buckets which you mentioned in resource of JSON. For that create your buckets with the same names provided in the JSON or replace the JSON with your created bucket names.( this bucket is about loading the date from redshift to s3).For s3 to redshift amazon already provided the bucket name.
+12. Click on next tags >> review>> give policy name as "myprojectredshiftpolicy" >> create policy 
+13. Now go to roles >> select created policy  "myprojectredshiftpolicy" from list >> next >> give role name as "myproject_redshiftrole" >> create role
+
+# Back to redshift screen for creation
+
+15. Back to redshift screen >> action >> manage IAM roles >> cluster permissions >> Associated IAM  role> select myproject_redshiftrole and associate
+16. Edit network settings >> (if you created cluster from free trail then aditional configurations won't available)  >> trun off use defaults >> conect created VPC >> rest keep as default >> AZ selection no require as it being in the private subnet
+17. In database give name as review and keep rest all as default >> click on create cluster

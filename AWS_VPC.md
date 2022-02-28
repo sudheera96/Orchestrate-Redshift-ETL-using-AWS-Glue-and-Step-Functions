@@ -104,3 +104,54 @@ VPC = Virtual Private Cloud. You can have multiple VPCs in an AWS region (max. 5
    * More consistent network experience - applications using real-time data feeds
    * Hybrid Environments (on prem + cloud)
 * Supports both IPv4 and IPv6
+
+# Creation of VPC
+
+We are creating VPC to ensure the infrasturce of our project having the services like s3, Redshift, Glue, step functions. Always we keep critical confidentail data in private subnet and anything open to public in public subnet.
+
+So we create VPC with 2 private and 2 public subnets along with NACL and internet gateway connection.
+ 
+ 1. Login into aws couunt.
+ 2. In search control give VPC
+ 3. Go for your VPC's
+ 4. There will be default VPC after account creation, then create VPC
+ 5. Give name tag  as myprojectVPC
+ 6. Give IPv4 CIDR as 10.71.0.0/16 (in this 16 bits are fixed out of 32 so we can have other 16 bits of different IP addresss. for every point it considere as 8 bits so there are 4 points 4*8 =32 bits)
+ 7. Keep rest as default and select create VPC
+ 
+ # Creation of Subnets
+ 
+ 9. VPC got created, now inside VPC there will be subnets, so click on subnets. As we already having default VPC there will also default subnets for default VPC. So now create subnets.
+ 10. In that create subnet select VPC ID which we created VPC as myproject VPC
+ 11. Consider this Subnet as public and give name as public Subnet A
+ 12. Give availability zone as 'US East (N.Virginia)/us-east-1a'
+ 13. Choose IPv4 CIDR block as 10.71.0.0/20. so last 20 bits of different IP address are alocated for one subnet.
+ 14. Now create other subnet as 'Private Subnet A' with IPV4 CIDR as 10.71.16.0/20
+ 15. The above private and public sunets create in one AZ as us-east-1a, now create other private and public subnet in other AZ us-east-1b
+ 16. Now create Public subnet B with 10.71.32.0/20 address
+ 17. Now create Private subnet B with 10.71.48.0/20 address
+ 
+ # Creation of Internet Gateway
+ 
+ 19. Now create internet gateway( which is required public subnets to communicate with internet), click on internet gateway there will default internet gateway for default VPC so now click on create internet gateway and give 'myprojectinternetgateway'. Then click on action and attach created VPC status will be moved to "attached".
+
+ # Creation of NAT Gateway
+
+ 21. Now create NAT gateway (which is required private subnet to communicate with internet).,click on NAT gateway give name as 'mynatgateway'
+ 22. As we observed from above image NAT will be in public subnet so we select public subnet A and we allocate elastic ip address and we clcik on create NAT 
+
+  # Creation of Route Tables
+  
+ 24. Now create route table, select on route tables we observer route table with our created VPC which is created automatically when we create VPC.
+ 25. Now Click on routes obsereved route is for VPC and create routes for internet gateway and NAT gateway
+ 26. Create route table for public subnet as 'my public route A' and then click on routes and edit routes provide 0.0.0.0/0 i.e what ever traffic from internet to public subnet should go through iinternet gateway. So select internetgateway also, which we created.
+ 27. Then assosiate public subnet A to this route table.
+ 28. Similary create other route table as 'my public route B' follow reest of steps and assosicate with public subnet B
+ 29. Similary create route tables for private subnets A , B where traffic need to go through NAT. So if the NAT is failed then recreate it and then associate the private subnet A,B respectively.
+
+  # Creation of NACL's
+  
+  30. For blocking the traffic at subnet level attach the NACL. Create NACL by clicking on Network ACLs under security. As we created 4 subnets there is default NACL rules and also security rules so let keep all of them as default.
+
+
+  

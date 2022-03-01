@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::stack2-scriptbucket-nsqka0hyhfqi",
+                "arn:aws:s3:::stack2-scriptbucket-nsqka0hyhfqi/*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "secretsmanager:*"
+            ],
+            "Resource": "arn:aws:secretsmanager:us-east-1:338401225294:secret:reviewssecret-rb0YVj",
+            "Effect": "Allow"
+        }
+    ]
+}

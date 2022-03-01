@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "glue:StartJobRun",
+                "glue:GetJobRun",
+                "glue:GetJobRuns",
+                "glue:BatchStopJobRun"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "sns:publish"
+            ],
+            "Resource": "arn:aws:sns:us-east-1:338401225294:alarm-topic",
+            "Effect": "Allow"
+        }
+    ]
+}

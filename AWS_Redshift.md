@@ -62,3 +62,9 @@ Read the data from s3 using redshift spectrum and load into the redshift and run
 15. Back to redshift screen >> action >> manage IAM roles >> cluster permissions >> Associated IAM  role> select myproject_redshiftrole and associate
 16. Edit network settings >> (if you created cluster from free trail then aditional configurations won't available)  >> trun off use defaults >> conect created VPC >> rest keep as default >> AZ selection no require as it being in the private subnet
 17. In database give name as review and keep rest all as default >> click on create cluster
+18. Try to conneect with redshift and run some quieries i.e we need to create tables which will be loaded in next step like glue jobs
+19. Go to cluster >> check created cluster availability >> go back to the editor page >> connect to database >> creaate new connection >> AWS secret manger ( always use this for storing the credentials rather than sharing to every one) >> store new secret >> database name>> database user >> password >> connect to cluster
+20. Go the search >> give secret manager and check created new secret >> click on the create secret "redshiftqueryeditor-admin-myredshiftsecret" >> Retreview the secret value to look into details.
+21. But cluster still in my private subnet no one will be able to access, unless I grant the IP address of the other person to login into the cluster.
+22. So we can use the "redshiftqueryeditor-admin-myredshiftsecret" name rather than hard coring the credentials
+

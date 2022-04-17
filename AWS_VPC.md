@@ -142,8 +142,8 @@ So we create VPC with 2 private and 2 public subnets along with NACL and interne
 
   # Creation of Route Tables
   
- 24. Now create route table, select on route tables we observer route table with our created VPC which is created automatically when we create VPC.
- 25. Now Click on routes obsereved route is for VPC and create routes for internet gateway and NAT gateway
+ 24. Now create route table, select on route tables we observer route table with our created VPC name which is created automatically when we create VPC.
+ 25. Now Click on routes obsereved route is for VPC i.e, local route where it provides IP's for things inside the VPC. So create routes for internet gateway and NAT gateway
  26. Create route table for public subnet as 'my public route A' and then click on routes and edit routes provide 0.0.0.0/0 i.e what ever traffic from internet to public subnet should go through iinternet gateway. So select internetgateway also, which we created.
  27. Then assosiate public subnet A to this route table.
  28. Similary create other route table as 'my public route B' follow reest of steps and assosicate with public subnet B

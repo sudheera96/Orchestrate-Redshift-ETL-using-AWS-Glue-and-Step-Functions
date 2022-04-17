@@ -116,7 +116,7 @@ So we create VPC with 2 private and 2 public subnets along with NACL and interne
  3. Go for your VPC's
  4. There will be default VPC after account creation, then create VPC
  5. Give name tag  as myprojectVPC
- 6. Give IPv4 CIDR as 10.71.0.0/16 (in this 16 bits are fixed out of 32 so we can have other 16 bits of different IP addresss. for every point it considere as 8 bits so there are 4 points 4*8 =32 bits)
+ 6. Give IPv4 CIDR as 10.71.0.0/16 (in this 16 bits are fixed out of 32 so we can have other 16 bits of different IP addresss. for every point it considere as 8 bits so there are 4 points 4*8 =32 bits)  [CIDAR BLOCK DETAILS](https://medium.com/geekculture/aws-vpc-and-subnet-cidr-calculation-and-allocation-cfbe69050712)
  7. Keep rest as default and select create VPC
  
  # Creation of Subnets

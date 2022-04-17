@@ -43,7 +43,7 @@ Read the data from s3 using redshift spectrum and load into the redshift and run
 
 1.  Go to redshift from search bar and ensure to create redshift in the same region of your VPC creation.
 2.  Before that in the menu go to the config and select manage subnet groups.
-3.  Now give cluster name and description as 'myreviewsubnetgroup'
+3.  Now give cluster subnet group name and description as 'myreviewsubnetgroup'
 4.  Attach VPC and two private subnets created in different AZ and click on create cluster subnet group.
 5.  Now go into the clusters from menu and click on create new cluster.
 6.  Now give name as 'myproject cluster'. If your free tire is over click on production ad select cluster size and node if not for free it will automatically provide cluster size as dc2.large | 1 node.
